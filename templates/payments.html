@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Similar looking panel but</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Only to mark entries as paid</h1>
+    </div>
+
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+      <input class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tl rounded-bl" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Tokens..">
+      <br>
+      <a href="/admin"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Go to Approvals Page</button></a>
+      <br>
+      <table id="myTable" class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+          	<th class="w-10 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tr rounded-br">Paid</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tl rounded-bl">Name</th>
+
+            <th class="w-10 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tr rounded-br">|token|</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        	<form method="POST" action="#">
+        	{% for i in l %}
+          <tr>
+          	<td class="px-4 py-3 text-white">{{i[-2]}}</td>
+            <td class="px-4 py-3 text-white">{{i[0]}}</td>
+            <td class="px-4 py-3 text-white">{{i[-1]}}</td>
+
+
+            <td class="w-10 text-center">
+              <button value="paid:{{i[13]}}" name="btn" class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Paid</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody></form>
+      </table>
+    </div>
+  </div>
+</section>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+</script>
+{% endblock %}

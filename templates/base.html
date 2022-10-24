@@ -1,0 +1,72 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+  html {
+  scroll-behavior: smooth;
+}
+  </style>
+  <title>Intra SMMS Summit</title>
+</head>
+<body>
+
+
+{% block header %}<header class="text-gray-400 bg-gray-900 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <img class="w-20 h-20 text-white p-2 bg-black-700 rounded-full" src="{{url_for('static', filename='/logo.png')}}">
+        
+      <span class="ml-3 text-xl">INTRA SMMS SUMMIT</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a href="/" class="mr-5 hover:text-white">Home</a>
+      <a href="/register" class="mr-5 hover:text-white">Register</a>
+      <a href="/login" class="mr-5 hover:text-white">Login</a>
+      <a href="/logout" class="mr-5 hover:text-white">Logout</a>
+      <a href="/admin">Admins</a>
+    </nav>
+
+  </div>
+</header>{% endblock %}
+
+
+{% block content %}{% endblock %}
+
+
+{% block footer %}
+<footer class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+  </div>
+  <div class="border-t border-gray-800">
+    <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+      <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+        
+        <p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 text-center sm:text-left">Venue: Sophy Mercy Memorial School,
+          <br class="lg:block hidden">Kalibari Road, Christian Patty Sivasagar, Assam
+      </div>
+      <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
+      
+        
+        <a href="https://instagram.com/intra_smms_summit" class="ml-3 text-gray-400">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        
+      </span>
+    </div>
+  </div>
+  <div class="bg-gray-800 bg-opacity-75">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-400 text-sm text-center sm:text-left">© Intra SMMS Summit. Developed by 
+        <a href="https://instagram.com/shakhyar_" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@shakhyar_</a>
+      </p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+</body>
+</html>
